@@ -15,11 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
     graphicsscene.cpp \
     dot.cpp \
-    distance.cpp
+    distance.cpp \
+    connection.cpp \
+    customitem.cpp \
+    text.cpp
 
 HEADERS  += \
     graphicsscene.h \
     dot.h \
-    distance.h
+    distance.h \
+    connection.h \
+    customitem.h \
+    text.h
 
 FORMS    +=

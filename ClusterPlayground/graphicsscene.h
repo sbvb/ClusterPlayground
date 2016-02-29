@@ -18,16 +18,21 @@ public:
                   int w = 500, int h = 500,
                   QObject *parent = 0);
     ~GraphicsScene();
-    Dot *nearestCenter(Dot *);
 
 protected:
 
-    QList<int> centersIndex;
+    QList<Dot*> centersPointers;
     int dotRadius;
+    double totalCost;
 
     QTransform transform;
-    QGraphicsItem * selectedDot;
+    Dot * selectedDot;
     bool selectionActive;
+
+    void removeCenter(Dot *);
+    Dot *nearestCenter(Dot *);
+    void connectToNearest(Dot *);
+    void updateConnections();
 
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *);

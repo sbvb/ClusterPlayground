@@ -1,6 +1,9 @@
 #ifndef DOT_H
 #define DOT_H
 
+#include "customitem.h"
+#include "connection.h"
+
 #include <QPointF>
 #include <QRectF>
 
@@ -10,10 +13,11 @@
 #include <QGraphicsItem>
 #include <QGraphicsSceneMouseEvent>
 
-class Dot : public QGraphicsItem
+class Dot : public CustomItem
 {
     QBrush m_brush;
     QPointF m_pos;
+    Connection *m_connection;
     double m_radius;
     bool m_isCenter;
 public:
@@ -23,11 +27,16 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-    void makeCenter();
+    void setConnection(Connection *connection);
     void setPos(QPointF pos);
     void setPos(double x, double y);
+    void makeCenter();
 
+    std::string getName();
     QPointF getPos();
+    QPointF *getPosPointer();
+    Connection *getConnection();
+
     bool isCenter();
 };
 
